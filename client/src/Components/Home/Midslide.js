@@ -11,7 +11,7 @@ const Midslide = ({ products, title, timer }) => {
                 <Slide products={products} title={title} timer={timer} />
             </LeftComponent>
             <RightComponent>
-                <img src={adURL} alt="" style={{ width: 217 }} />
+                <img src={adURL} alt="ad" style={{ width: 217 }} />
             </RightComponent>
         </Component>
     )
@@ -25,15 +25,27 @@ const Component = styled(Box)`
 
 `
 
-const LeftComponent = styled(Box)`
-width: 83%;
-`
+const LeftComponent = styled(Box)(({ theme }) => ({
+    width: '83%',
+    [theme.breakpoints.down('md')]: {
+        width: '100%'
+    }
+}))
 
-const RightComponent = styled(Box)`
-    background-color: #ffffff;
-    padding: 3px;
-    margin-top: 5px;
-    margin-left: 10px;
-    width: 17%;
-    text-align: center;
-`
+
+
+const RightComponent = styled(Box)(({ theme }) => (
+    {
+        background: '#ffffff',
+        padding: 3,
+        marginTop: 5,
+        marginLeft: 10,
+        width: '17%',
+        textAlign: 'center',
+        [theme.breakpoints.down('md')]: {
+            display: 'none'
+        }
+    }
+))
+
+

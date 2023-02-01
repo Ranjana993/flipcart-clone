@@ -1,9 +1,9 @@
-import { Box, Button, Divider, styled, Typography } from '@mui/material';
+import { Box, Button, Divider, Typography, styled } from '@mui/material';
 import React from 'react'
 import Carousel from 'react-multi-carousel'
 import "react-multi-carousel/lib/styles.css";
 import Countdown from 'react-countdown';
-
+import { Link } from "react-router-dom"
 
 const responsive = {
     desktop: {
@@ -39,7 +39,6 @@ const Slide = ({ products, title, timer }) => {
                             <Countdown date={Date.now() + 5.04e+7} renderer={renderer} />
                         </Timer>
                     }
-
                     <StyledBtn variant='contained'>View All</StyledBtn>
                 </Deal>
                 <Divider />
@@ -59,12 +58,14 @@ const Slide = ({ products, title, timer }) => {
                 >
                     {
                         products.map((data) => (
-                            <Box textAlign={"center"} style={{ padding: "20px 15px" }}>
-                                <Image key={data.id} src={data.url} alt="" />
-                                <Text style={{ color: '#212121', fontWeight: 600 }}>{data.title.shortTitle}</Text>
-                                <Text style={{ color: 'green' }}>{data.discount}</Text>
-                                <Text style={{ color: '#212121', opacity: '0.6' }}>{data.tagline}</Text>
-                            </Box>
+                            <Link to={`product/${data.id}`} key={data.id} style={{ textDecoration: "none" }}>
+                                <Box textAlign={"center"} style={{ padding: "20px 15px" }}>
+                                    <Image key={data.id} src={data.url} alt="" />
+                                    <Text style={{ color: '#212121', fontWeight: 600 }}>{data.title.shortTitle}</Text>
+                                    <Text style={{ color: 'green' }}>{data.discount}</Text>
+                                    <Text style={{ color: '#212121', opacity: '0.6' }}>{data.tagline}</Text>
+                                </Box>
+                            </Link>
                         ))
                     }
                 </Carousel>
@@ -77,8 +78,8 @@ export default Slide
 
 
 const Text = styled(Typography)`
-font-size: 14px;
-margin-top: 5px;
+    font-size: 14px;
+    margin-top: 5px;
 `
 
 const StyledBtn = styled(Button)`
@@ -96,15 +97,15 @@ const Component = styled(Box)`
 `
 
 const Deal = styled(Box)`
-padding: 15px 20px;
-display: flex;
+    padding: 15px 20px;
+    display: flex;
 `
 
 const Timer = styled(Box)`
-display: flex;
-margin-left: 10px;
-align-items: center;
-color: #7f7f7f;
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+    color: #7f7f7f;
 `
 
 const DealText = styled(Typography)`

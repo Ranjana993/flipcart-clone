@@ -2,6 +2,7 @@ import React from 'react'
 import { AppBar, Toolbar, styled, Box, Typography } from "@mui/material"
 import SearchComponent from './SearchComponent';
 import CustomButtons from './CustomButtons';
+import { Link } from "react-router-dom"
 
 const Logo = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png';
 const subURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/plus_aef861.png';
@@ -11,7 +12,7 @@ const Header = () => {
     return (
         <StyledHeader>
             <Toolbar style={{ minHeight: 55 }}>
-                <ComponentBox>
+                <ComponentBox to={'/'}>
                     <img src={Logo} alt="logo" style={{ width: 75 }} />
                     <Box style={{ display: 'flex' }}>
                         <SubHeading>Explore &nbsp; <Box component="span" style={{ color: '#ffe500' }}>Plus</Box>
@@ -39,9 +40,11 @@ const StyledHeader = styled(AppBar)`
 
 `
 
-const ComponentBox = styled(Box)`
+const ComponentBox = styled(Link)`
     margin-left: 12%;
     line-height: 0;
+    text-decoration:none;
+    color:inherit
 
 `
 

@@ -12,10 +12,10 @@ const Home = () => {
     const { products } = useSelector(state => state.getProducts)
     const dispatch = useDispatch()
 
-    console.log(products);
+    // console.log(products);
     useEffect(() => {
         dispatch(getProduct())
-
+        console.log("hello")
 
 
     }, [dispatch])
@@ -29,7 +29,7 @@ const Home = () => {
             <Container>
                 <Banner />
                 <Midslide products={products} title={"Deal of the Day"} timer={true} />
-                <MidBanner/>
+                <MidBanner />
                 <Slide products={products} title={"Discount For You"} timer={false} />
                 <Slide products={products} title={"Suggestions for you"} timer={false} />
                 <Slide products={products} title={"Top Selection"} timer={false} />

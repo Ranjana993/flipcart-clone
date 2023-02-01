@@ -29,7 +29,7 @@ const Banner = () => {
             swipeable={false}
             draggable={false}
             infinite={true}
-            autoPlay={true }
+            autoPlay={true}
             autoPlaySpeed={4000}
             keyBoardControl={true}
             slidesToSlide={1}
@@ -49,7 +49,12 @@ export default Banner
 
 
 
-const Image = styled('img')({
+const Image = styled('img')(({ theme }) => ({
     width: '100%',
     height: 280,
+    [theme.breakpoints.down('md')]: {
+        objectFit: 'cover',
+        height: 180
+    }
 })
+)   
