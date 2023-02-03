@@ -10,14 +10,11 @@ import MidBanner from './MidBanner'
 
 const Home = () => {
     const { products } = useSelector(state => state.getProducts)
+    // console.log("Products ....." , products)
     const dispatch = useDispatch()
 
-    // console.log(products);
     useEffect(() => {
         dispatch(getProduct())
-        console.log("hello")
-
-
     }, [dispatch])
 
 
@@ -45,6 +42,6 @@ const Home = () => {
 export default Home
 
 const Container = styled(Box)`
-background: #f2f2f2;
-padding: 10px;
+    background: #f2f2f2;
+    padding: 10px;
 `

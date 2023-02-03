@@ -9,9 +9,12 @@ const DetailView = () => {
     const dispatch = useDispatch();
     const { id } = useParams()
 
-    const product = useSelector(state => state.getProductDetail)
-    console.log("hello", product)
-    // console.log("loading ..... ", loading, product);
+    const products = useSelector(state => state.getProductDetail.product)
+    // console.log(product.product)
+    // const { url} = products
+    console.log(products);
+    console.log("product is ", products?.url)
+    // console.log("hello", product?.id)
 
     useEffect(() => {
         // if (product && id !== product.id) {
@@ -25,18 +28,19 @@ const DetailView = () => {
 
     return (
         <Box>
-            {/* <h2>hello</h2> */}
-            {/* {
-                product && Object.keys(product).length &&
+            <h2>hello</h2>
+            {
+                products && Object.keys(products).length &&
                 <Box>
                     <Box>
 
                     </Box>
                     <Box>
-                        <Typography>{product.title.longTitle}</Typography>
+                        <img src={products.detailUrl} alt="" />
+                        <Typography>{products.title.longTitle}</Typography>
                     </Box>
                 </Box>
-            } */}
+            }
         </Box>
     )
 }
