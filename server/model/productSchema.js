@@ -1,10 +1,12 @@
 import mongoose from "mongoose";
 
 const ProductSchema = new mongoose.Schema({
+    
     id: { type: String, required: true, unique: true },
     url: String,
     detailUrl: String,
     title: Object,
+    price: Object,
     quantity: Number,
     description: String,
     discount: String,
@@ -12,5 +14,5 @@ const ProductSchema = new mongoose.Schema({
 })
 
 
-const Productmodel = new mongoose.model("flipkart-products", ProductSchema);
+const Productmodel = new mongoose.model("flipkartproducts", ProductSchema);
 export default Productmodel;
