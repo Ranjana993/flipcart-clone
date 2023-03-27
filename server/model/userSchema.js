@@ -11,7 +11,5 @@ const UserSchema = new mongoose.Schema({
 
 
 
-// const USER MODEL FOR LOGIN AND REGISTER
-
 const User = new mongoose.model("loginandregister", UserSchema);
 export default User

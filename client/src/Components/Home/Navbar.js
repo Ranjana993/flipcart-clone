@@ -4,16 +4,19 @@ import { navData } from '../../Contants/data'
 
 const Navbar = () => {
     return (
-        <Component>
-            {
-                navData.map(data => (
-                    <Container key={data.id}>
-                        <img src={data.url} alt="" style={{ width: 64 }} />
-                        <Text>{data.text}</Text>
-                    </Container>
-                ))
-            }
-        </Component>
+        <Box style={{background:'#fff'}}>
+            <Component>
+                {
+                    navData.map(data => (
+                        <Container key={data.id}>
+                            <img src={data.url} alt="" style={{ width: 64 }} />
+                            <Text>{data.text}</Text>
+                        </Container>
+                    ))
+                }
+            </Component>
+        </Box>
+ 
     )
 }
 
@@ -25,6 +28,7 @@ const Component = styled(Box)(({ theme }) => ({
     justifyContent: 'space-between',
     margin: '55px 130px 0 130px',
     overflow: 'hidden',
+    background:'#fff',
     [theme.breakpoints.down('lg')]: {
         margin: '0'
     }

@@ -1,4 +1,4 @@
-import { Box, Grid, styled } from '@mui/material';
+import {  Grid, styled } from '@mui/material';
 import React from 'react'
 import { imageURL } from '../../Contants/data';
 
@@ -9,11 +9,11 @@ const url = 'https://rukminim1.flixcart.com/flap/3006/433/image/4789bc3aefd54494
 const MidBanner = () => {
     return (
         <>
-            <Wrapper lg={12} md={12} xs={12} container>
+            <Wrapper container lg={12} md={12} xs={12} >
                 {
                     imageURL.map(data => {
                         return (
-                            <Grid lg={4} sm={12} md={4} xs={12} key={data.id}>
+                            <Grid item key={data.id} lg={4} sm={12} md={4} xs={12} >
                                 <img src={data} alt="" style={{ width: '100%' }} />
                             </Grid>
                         )

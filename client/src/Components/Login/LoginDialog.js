@@ -74,6 +74,9 @@ const LoginDialog = ({ open, setOpen }) => {
             setError(true)
         }
     }
+
+
+    
     return (
         <Dialog onClose={handleClose} open={open} PaperProps={{ sx: { maxWidth: 'unset' } }}>
             <Component>
